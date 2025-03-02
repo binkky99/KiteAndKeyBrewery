@@ -1,0 +1,26 @@
+<mat-toolbar class="nav-container">
+    <span>Brewing Sample App</span>
+    <div class="spacer"></div>
+    <a mat-button>Home</a>
+    <a mat-button>About</a>
+    <a mat-button>Contact</a>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Dynamic</button>
+        <button mat-menu-item (click)="applyLightMode()">
+            <mat-icon *ngIf="!this.darkModeEnabled">
+                done
+            </mat-icon>
+            Light Theme
+        </button>
+        <button mat-menu-item (click)="applyDarkMode()">
+            <mat-icon *ngIf="this.darkModeEnabled">
+                done
+            </mat-icon>
+            Dark Theme
+        </button>
+    </mat-menu>
+</mat-toolbar>
+

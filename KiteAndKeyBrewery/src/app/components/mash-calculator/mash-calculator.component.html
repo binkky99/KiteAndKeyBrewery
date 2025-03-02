@@ -1,0 +1,20 @@
+<app-calculator titleText="Mash Calculator">
+  <form>
+    <label id="units-radio-group-label">Units:</label>
+    <mat-radio-group
+      aria-labelledby="units-radio-group-label"
+      class="units-radio-group"
+      [(ngModel)]="this.selectedUnits"
+      name="units">
+      @for (unit of this.units; track unit) {
+        <mat-radio-button class="units-radio-button" [value]="unit">{{unit}}</mat-radio-button>
+      }
+    </mat-radio-group>
+
+    <label id="grain-weight-label">Grain Weight:</label>
+    <mat-form-field aria-labelledby="grain-weight-label" class="form-group units-radio-button">
+      <input matInput type="number" [(ngModel)]="this.grainWeight" name="grain">
+    </mat-form-field>
+    (Lb)
+  </form>
+</app-calculator>

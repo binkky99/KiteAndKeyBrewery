@@ -4,12 +4,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-calculator',
+  selector: 'app-dashboard-element',
   imports: [MatCardModule, MatDividerModule, MatIcon],
-  templateUrl: './calculator.component.html',
-  styleUrl: './calculator.component.css'
+  templateUrl: './dashboard-element.component.html',
+  styleUrl: './dashboard-element.component.css'
 })
-export class CalculatorComponent {
+export class DashboardElementComponent {
   @Input('titleText') titleText : string = ''; 
 
 }

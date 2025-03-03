@@ -1,20 +1,28 @@
-<app-calculator titleText="Mash Calculator">
-  <form>
+<app-dashboard-element titleText="Mash Calculator">
+  <form [formGroup]="formGroup">
     <label id="units-radio-group-label">Units:</label>
     <mat-radio-group
       aria-labelledby="units-radio-group-label"
       class="units-radio-group"
-      [(ngModel)]="this.selectedUnits"
+      [formControl]="formGroup.controls.selectedUnits"
       name="units">
       @for (unit of this.units; track unit) {
-        <mat-radio-button class="units-radio-button" [value]="unit">{{unit}}</mat-radio-button>
+        <mat-radio-button class="form-item" [value]="unit">{{unit.label}}</mat-radio-button>
       }
     </mat-radio-group>
 
     <label id="grain-weight-label">Grain Weight:</label>
-    <mat-form-field aria-labelledby="grain-weight-label" class="form-group units-radio-button">
-      <input matInput type="number" [(ngModel)]="this.grainWeight" name="grain">
+    <mat-form-field class="form-item number-field" aria-labelledby="grain-weight-label">
+      <mat-icon matIconPrefix>scale</mat-icon>
+      <input matInput type="number" [formControl]="this.formGroup.controls.grainWeight" name="grain">
+      <p matTextSuffix>{{weightSuffix}}(s)</p>
     </mat-form-field>
-    (Lb)
+
+    <label id="mash-water-label">Mash Water Ratio:</label>
+    <mat-form-field class="form-item number-field" aria-labelledby="mash-water-label">
+      <mat-icon matIconPrefix>water_drop</mat-icon>
+      <input matInput type="number" [formControl]="this.formGroup.controls.waterRatio" name="water-ratio">
+      <span matTextSuffix>{{volumeSuffix}}(s) / {{weightSuffix}}</span>
+    </mat-form-field>
   </form>
-</app-calculator>
+</app-dashboard-element>

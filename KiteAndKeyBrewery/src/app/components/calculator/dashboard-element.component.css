@@ -1,0 +1,29 @@
+.container {
+  margin: 25px;
+  max-width: 600px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  color: var(--mat-sys-on-secondary-container);
+}
+
+mat-card-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: var(--mat-sys-secondary-container);
+}
+
+mat-card {
+  background-color: var(--mat-sys-surface-container);
+}
+
+mat-card-subtitle {
+  color: var(--mat-sys-on-secondary-container);
+}

@@ -1,0 +1,26 @@
+form {
+  --item-padding: 25px;
+}
+
+.units-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.form-item {
+  padding-left: var(--item-padding);
+}
+
+.form-group {
+  display: flex;
+  margin: 15px 0;
+}
+
+.number-field {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: 15px 0;
+}

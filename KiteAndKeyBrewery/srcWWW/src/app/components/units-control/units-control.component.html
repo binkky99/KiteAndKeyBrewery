@@ -1,0 +1,5 @@
+<mat-form-field>
+  <mat-icon matIconPrefix>scale</mat-icon>
+  <input matInput type="text" (blur)="formatInput(this.control, $event, '1.2-2')" [value]="this.control.value | number:'1.2-2'">
+  <p matTextSuffix>{{numeratorUnits}}(s)</p>
+</mat-form-field>

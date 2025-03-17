@@ -1,28 +1,17 @@
-<app-dashboard-element titleText="Mash Calculator">
+<app-dashboard-element titleText="Mash Calculator" icon='thermostat'>
   
-    <app-units-control 
-      [data]="this.mashData.getData() | async">
-    </app-units-control>
+  <form [formGroup]="this.form">
+    <div>
+      @for (control of this.controlArray.controls; track control) {
+        <label id="{{control.value.id}}">{{control.value.label}}:</label>
+        <mat-form-field 
+          class="item-padding" [attr.aria-labelledby]="control.value.id">
+          <mat-icon matIconPrefix>{{control.value.icon}}</mat-icon>
+          <input matInput type="text" (blur)="formatInput(control, $event, '1.2-2')" [value]="control.value.value | number:'1.2-2'">
+          <p matTextSuffix>{{control.value.units}}(s)</p>
+        </mat-form-field>
+      }
+    </div>
+  </form>
 
-    <!-- <label id="grain-weight-label">Grain Weight:</label>
-    <mat-form-field class="form-item number-field" aria-labelledby="grain-weight-label">
-      <mat-icon matIconPrefix>scale</mat-icon>
-      <input matInput type="text" (blur)="formatInput(this.grainWeight, $event, '1.2-2')" [value]="this.grainWeight?.value | number:'1.2-2'">
-      <p matTextSuffix>{{weightSuffix}}(s)</p>
-    </mat-form-field> -->
-
-    <!-- <label id="mash-water-label">Mash Water Ratio:</label>
-    <mat-form-field class="form-item number-field" aria-labelledby="mash-water-label">
-      <mat-icon matIconPrefix>water_drop</mat-icon>
-      <input matInput type="text" (blur)="formatInput(this.waterRatio, $event, '1.2-2')" [value]="this.waterRatio?.value | number:'1.2-2'">
-      <span matTextSuffix>{{volumeSuffix}}(s) / {{weightSuffix}}</span>
-    </mat-form-field>
-
-    <label id="first-rest-temperature">First Rest Temperature:</label>
-    <mat-form-field class="form-item number-field" aria-labelledby="first-rest-temperature">
-      <mat-icon matIconPrefix>thermostat</mat-icon>
-      <input matInput type="text" (blur)="formatInput(this.firstRest, $event, '1.1-1')" [value]="this.firstRest?.value | number:'1.1-1'">
-      <span matTextSuffix>{{temperatureSuffix}}</span>
-    </mat-form-field> -->
-  <!-- </form> -->
 </app-dashboard-element>

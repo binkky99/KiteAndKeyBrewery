@@ -10,6 +10,7 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './dashboard-element.component.css'
 })
 export class DashboardElementComponent {
-  @Input('titleText') titleText : string = ''; 
+  @Input('titleText') titleText : string = '';
+  @Input('icon') icon : string = '';
 
 }

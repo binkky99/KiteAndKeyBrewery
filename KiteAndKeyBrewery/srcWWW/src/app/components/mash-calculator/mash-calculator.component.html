@@ -1,22 +1,7 @@
 <app-dashboard-element titleText="Mash Calculator">
-  <form [formGroup]="formGroup">
-    <label id="units-radio-group-label">Units:</label>
-    <mat-radio-group
-      aria-labelledby="units-radio-group-label"
-      class="units-radio-group"
-      [formControl]="formGroup.controls.selectedUnits"
-      name="units">
-      @for (unit of this.units; track unit) {
-        <mat-radio-button class="form-item" [value]="unit">{{unit.label}}</mat-radio-button>
-      }
-    </mat-radio-group>
-
-    <label id="grain-weight-label">Grain Weight:</label>
+  
     <app-units-control 
-      aria-labelledby="grain-weight-label"
-      class="form-item number-field"
-      [control]="this.formGroup.controls['grainWeight']"
-      [numeratorUnits]="[formGroup.controls.selectedUnits.value?.weight]">
+      [data]="this.mashData.getData() | async">
     </app-units-control>
 
     <!-- <label id="grain-weight-label">Grain Weight:</label>
@@ -39,5 +24,5 @@
       <input matInput type="text" (blur)="formatInput(this.firstRest, $event, '1.1-1')" [value]="this.firstRest?.value | number:'1.1-1'">
       <span matTextSuffix>{{temperatureSuffix}}</span>
     </mat-form-field> -->
-  </form>
+  <!-- </form> -->
 </app-dashboard-element>

@@ -1,4 +1,4 @@
-package com.example.rest_service;
+package com.kite_and_key;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

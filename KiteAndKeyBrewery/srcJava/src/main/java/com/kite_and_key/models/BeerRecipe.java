@@ -17,16 +17,51 @@ public class BeerRecipe {
     private Float waterRatio;
 
     // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public Float getBoilingTemp() { return this.boilingTemp; }
-    public void setBoilingTemp(Float boilingTemp) { this.boilingTemp = boilingTemp; }
-    public Float getFirstRest() { return this.firstRest; }
-    public void setFirstRest(Float firstRest) { this.firstRest = firstRest; }
-    public Float getGrainTemp() { return this.grainTemp; }
-    public void setGrainTemp(Float grainTemp) { this.grainTemp = grainTemp; }
-    public Float getWaterRatio() { return waterRatio; }
-    public void setWaterRatio(Float waterRatio) { this.waterRatio = waterRatio; }
+    public Long getId() { 
+        return id; 
+    }
+
+    public String getName() { 
+        return name; 
+    }
+
+    public Float getBoilingTemp() { 
+        return this.boilingTemp; 
+    }
+
+    public Float getFirstRest() { 
+        return this.firstRest;
+    }
+
+    public Float getGrainTemp() { 
+        return this.grainTemp; 
+    }
+
+    public Float getWaterRatio() { 
+        return waterRatio; 
+    }
+
+    public void setId(Long id) {
+        this.id = id; 
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBoilingTemp(Float boilingTemp) { 
+        this.boilingTemp = boilingTemp; 
+    }
+
+    public void setFirstRest(Float firstRest) { 
+        this.firstRest = firstRest; 
+    }
+
+    public void setGrainTemp(Float grainTemp) { 
+        this.grainTemp = grainTemp; 
+    }
+
+    public void setWaterRatio(Float waterRatio) { 
+        this.waterRatio = waterRatio; 
+    }
 }

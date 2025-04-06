@@ -1,0 +1,13 @@
+<app-dashboard-element titleText="Mash Calculator" icon='thermostat'>
+  
+  <form [formGroup]="this.form">
+    <label for="boilingTemp">Boiling Temp</label>
+    <mat-form-field 
+      class="item-padding">
+      <mat-icon matIconPrefix>thermostat</mat-icon>
+      <input matInput type="text" (blur)="formatInput(form.controls['boilingTemp'], $event, '1.2-2')" [value]="form.controls['boilingTemp'].value.value | number:'1.2-2'">
+      <p matTextSuffix>°F</p>
+    </mat-form-field>
+  </form>
+
+</app-dashboard-element>

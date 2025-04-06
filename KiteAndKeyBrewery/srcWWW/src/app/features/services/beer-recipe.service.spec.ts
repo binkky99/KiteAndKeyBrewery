@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MashDataService } from './mash-data.service';
+import { BeerRecipeService } from './beer-recipe.service';
 
 describe('MashProfileHttpService', () => {
-  let service: MashDataService;
+  let service: BeerRecipeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MashDataService);
+    service = TestBed.inject(BeerRecipeService);
   });
 
   it('should be created', () => {

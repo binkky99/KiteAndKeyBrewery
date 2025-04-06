@@ -1,0 +1,13 @@
+#beer-recipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: var(--page-height);
+}
+
+#add-button {
+  height: 100px;
+  width: 300;
+  border-radius: 4px;
+}

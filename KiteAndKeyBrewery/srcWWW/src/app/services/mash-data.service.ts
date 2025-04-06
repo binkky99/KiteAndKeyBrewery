@@ -51,11 +51,12 @@ const data: MashEntry[] = [
 @Injectable()
 export class MashDataService {
   private data = data;
+  private readonly API_URL = 'http://localhost:8080/';
 
-  constructor(http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getData(): Observable<MashEntry[]> {
-    return of(this.data);
+  getData(): Observable<any> {
+    return this.http.get(`${this.API_URL}/resources/default-recipe`);
   }
 
   setData(newData: any): Observable<void> {

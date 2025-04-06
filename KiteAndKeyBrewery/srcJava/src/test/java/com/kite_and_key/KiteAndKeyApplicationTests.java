@@ -1,10 +1,10 @@
-package com.example.rest_service;
+package com.kite_and_key;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestServiceApplicationTests {
+class KiteAndKeyApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -5,7 +5,7 @@ import { MashDataService } from '../services/mash-data.service';
 
 @Component({
   selector: 'app-home',
-  imports: [ CommonModule, MashCalculatorComponent],
+  imports: [ CommonModule ],
   providers: [MashDataService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

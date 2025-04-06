@@ -1,0 +1,6 @@
+#home-component {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: var(--page-height);
+}

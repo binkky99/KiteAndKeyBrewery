@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 
 export interface BeerRecipe {
   id: number;
@@ -14,13 +14,20 @@ export interface BeerRecipe {
 
 @Injectable()
 export class BeerRecipeService {
-  private readonly API_URL = 'http://localhost:8080/';
+  private readonly API_URL = 'http://localhost:8080/api';
   private defaultProperties: BeerRecipe | null = null;
+  private recipesSubject = new BehaviorSubject<BeerRecipe[]>([]);
+  recipes$ = this.recipesSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  addNewRecipe(recipe: BeerRecipe): Observable<BeerRecipe> {
-    return this.http.post<BeerRecipe>(`${this.API_URL}/recipes`, recipe);
+  addNewRecipe(newRecipe: Omit<BeerRecipe, 'id'>): void {
+    this.http.post<BeerRecipe>(`${this.API_URL}/recipes`, newRecipe).subscribe({
+      next: addedRecipe => {
+        const currentRecipes = this.recipesSubject.value;
+        this.recipesSubject.next([...currentRecipes, addedRecipe]);
+      }
+    })
   }
 
   getDefaultProperties(): Observable<BeerRecipe> {

@@ -26,5 +26,5 @@ body {
 
 :root {
     --nav-bar-height: 50px;
-    --page-height: 100% - var(--nav-bar-height);
+    --page-height: calc(100% - var(--nav-bar-height));
 }

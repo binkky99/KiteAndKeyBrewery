@@ -1,6 +1,8 @@
 <div id="beer-recipe-container">
-  @for (recipe of this.recipes$ | async; track recipe) {
+  @for (recipe of this.beerRecipeService.recipes$ | async; track recipe) {
     <app-mash-calculator [recipe]="recipe"></app-mash-calculator>
   }
-  <button id="add-button" mat-stroked-button color="secondary"><mat-icon>add</mat-icon>Create New</button>
+  <button id="add-button" mat-stroked-button color="secondary" (click)="this.createNewRecipe()">
+    <mat-icon>add</mat-icon>Create New
+  </button>
 </div>

@@ -20,22 +20,22 @@ import { CommonModule } from '@angular/common';
 export class NavComponent {
   darkModeEnabled: boolean = true;
 
-  darkMode: WritableSignal<boolean> = signal(this.darkModeEnabled);
+  // darkMode: WritableSignal<boolean> = signal(this.darkModeEnabled);
 
   constructor() {
     effect(() => {
-      const darkMode = this.darkMode();
-      document.body.classList.toggle('darkMode', darkMode);
+      // const darkMode = this.darkMode();
+      // document.body.classList.toggle('darkMode', darkMode);
     })
   }
 
   public applyDarkMode() {
     this.darkModeEnabled = true;
-    this.darkMode.set(true);
+   //  this.darkMode.set(true);
   }
 
   public applyLightMode() {
     this.darkModeEnabled = false;
-    this.darkMode.set(false);
+    // this.darkMode.set(false);
   }
 }

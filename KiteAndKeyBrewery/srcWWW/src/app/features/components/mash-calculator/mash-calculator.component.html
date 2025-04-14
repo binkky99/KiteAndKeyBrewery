@@ -1,4 +1,4 @@
-<app-dashboard-element titleText="Mash Calculator" icon='thermostat'>
+<app-dashboard-element titleText="Mash Calculator" icon='thermostat' (onDelete)="this.onDelete.emit(this.recipe.id)">
   
   <form [formGroup]="this.form">
     <label for="boilingTemp">Boiling Temp</label>

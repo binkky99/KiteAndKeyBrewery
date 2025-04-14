@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DashboardElementComponent } from '../dashboard-element/dashboard-element.component';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -24,6 +24,7 @@ import { BeerRecipe } from '../../services/beer-recipe.service';
 })
 export class MashCalculatorComponent implements OnInit {
   @Input() recipe!: BeerRecipe;
+  @Output('onDelete') onDelete = new EventEmitter<number>();
 
   form!: FormGroup
     get controlArray(): FormArray {

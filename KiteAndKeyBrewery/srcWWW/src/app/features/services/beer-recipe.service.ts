@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap, tap } from 'rxjs';
 
 export interface BeerRecipe {
   id: number;
@@ -19,15 +19,22 @@ export class BeerRecipeService {
   private recipesSubject = new BehaviorSubject<BeerRecipe[]>([]);
   recipes$ = this.recipesSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getAllRecipes().subscribe(recipes => this.recipesSubject.next(recipes));
+  }
 
   addNewRecipe(newRecipe: Omit<BeerRecipe, 'id'>): void {
-    this.http.post<BeerRecipe>(`${this.API_URL}/recipes`, newRecipe).subscribe({
-      next: addedRecipe => {
-        const currentRecipes = this.recipesSubject.value;
-        this.recipesSubject.next([...currentRecipes, addedRecipe]);
-      }
-    })
+    this.http.post<BeerRecipe>(`${this.API_URL}/recipes`, newRecipe).
+    pipe(
+      switchMap(() => this.getAllRecipes())
+    ).subscribe(recipes => this.recipesSubject.next(recipes));
+  }
+
+  deleteRecipe(id: number): void {
+    this.http.delete<void>(`${this.API_URL}/recipes/${id}`).
+      pipe(
+        switchMap(() => this.getAllRecipes())
+      ).subscribe(recipes => this.recipesSubject.next(recipes));
   }
 
   getDefaultProperties(): Observable<BeerRecipe> {

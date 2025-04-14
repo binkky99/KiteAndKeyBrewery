@@ -1,19 +1,27 @@
 .container {
   margin: 25px;
   width: 450px;
+  border: 1px solid var(--mat-sys-surface-bright)
 }
 
-mat-icon {
+.delete-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+mat-icon.icon {
   width: 40px;
   height: 40px;
   font-size: 40px;
-  color: var(--mat-sys-on-secondary-container);
+  color: var(--mat-sys-on-surface-container);
 }
 
 mat-card-header {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: var(--mat-sys-secondary-container);
+  background-color: var(--mat-sys-surface-container);
+  position: relative;
 }
 
 mat-card {
@@ -21,5 +29,5 @@ mat-card {
 }
 
 mat-card-subtitle {
-  color: var(--mat-sys-on-secondary-container);
+  color: var(--mat-sys-on-surface-container);
 }

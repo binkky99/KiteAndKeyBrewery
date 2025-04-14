@@ -1,8 +1,12 @@
-<mat-card class="container" appearance="outlined">
+<mat-card class="container" >
   <mat-card-header>
     <mat-icon class="icon" mat-card-avatar>{{this.icon}}</mat-icon>
+    
     <mat-card-title>{{this.titleText}}</mat-card-title>
     <mat-card-subtitle>Details</mat-card-subtitle>
+    <button mat-fab class="delete-button" (click)="this.onDelete.emit()">
+      <mat-icon>delete</mat-icon>
+    </button>
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>

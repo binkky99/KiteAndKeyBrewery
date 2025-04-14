@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DashboardElementComponent } from '../dashboard-element/dashboard-element.component';
 import { CommonModule, DecimalPipe } from '@angular/common';
-import { MashEntry } from '../../services/mash-data.service';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormField, MatInputModule } from '@angular/material/input';
+import { BeerRecipe } from '../../services/beer-recipe.service';
 
 @Component({
   selector: 'app-mash-calculator',
@@ -23,7 +23,8 @@ import { MatFormField, MatInputModule } from '@angular/material/input';
   styleUrl: './mash-calculator.component.css'
 })
 export class MashCalculatorComponent implements OnInit {
-  @Input() data: MashEntry[] | null = [];
+  @Input() recipe!: BeerRecipe;
+  @Output('onDelete') onDelete = new EventEmitter<number>();
 
   form!: FormGroup
     get controlArray(): FormArray {
@@ -34,11 +35,16 @@ export class MashCalculatorComponent implements OnInit {
                 private fb: FormBuilder) { }
   
     ngOnInit(): void {
-      if (!this.data) return; 
+      if (!this.recipe) return; 
   
       this.form = this.fb.group({
-        items: this.fb.array(this.data.map(r => new FormControl(r, Validators.min(0))))
-      })
+        name: [this.recipe.name, Validators.required],
+        boilingTemp: [this.recipe.boilingTemp, [Validators.required, Validators.min(0)]],
+        grainWeight: [this.recipe.grainWeight, [Validators.required, Validators.min(0)]],
+        firstRest: [this.recipe.firstRest, [Validators.required, Validators.min(0)]],
+        grainTemp: [this.recipe.grainTemp, [Validators.required, Validators.min(0)]],
+        waterRatio: [this.recipe.waterRatio, [Validators.required, Validators.min(0)]],
+      });
     }
   
     formatInput(formControl: AbstractControl | null, event: any, format: string) {

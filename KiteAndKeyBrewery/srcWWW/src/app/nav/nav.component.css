@@ -5,4 +5,5 @@
 .nav-container {
     color: var(--mat-sys-primary);
     background-color: var(--mat-sys-primary-container);
+    height: var(--nav-bar-height);
 }

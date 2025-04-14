@@ -3,23 +3,20 @@
 
 html {
   @include mat.theme((
-      color: mat.$cyan-palette,
+      color: (
+        primary: mat.$cyan-palette,
+        tertiary: mat.$orange-palette,
+        theme-type: dark
+      ),
       typography: Roboto,
       density: 0
   ));
 }
 
-.darkMode {
-    @include mat.theme((
-        color: (
-            primary: mat.$cyan-palette,
-            theme-type: dark
-        )
-    ));
-}
-
 html, body { height: 100%; }
 body {
+    --nav-bar-height: 50px;
+    --page-height: calc(100% - var(--nav-bar-height));
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
